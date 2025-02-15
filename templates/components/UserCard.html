@@ -1,0 +1,16 @@
+<div class="bg-white shadow-md rounded-lg p-4 mb-4 border border-gray-200">
+    <h2 class="text-xl font-semibold text-gray-800">User: {{ name }}</h2>
+    <p class="text-gray-600">ID: <span class="font-medium">{{ id }}</span></p>
+    <p class="text-gray-600">Email: <span class="font-medium">{{ email }}</span></p>
+    <p class="text-gray-600">Age: <span class="font-medium">{{ age }}</span></p>
+    <p class="text-gray-600">RFC: <span class="font-medium">{{ rfc }}</span></p>
+    <p class="text-gray-600">Created: <span class="font-medium">{{ created_date }}</span></p>
+
+    <div class="mt-4">
+        <img src="{{ photo }}" alt="{{ name }}" class="w-24 h-24 rounded-full shadow-md border">
+    </div>
+
+    <div class="border bg-blue-300 font-bold mt-2 rounded-sm text-center flex justify-center">
+        <a href="{% url 'userDetail' id %}">Ver direcciones</a>
+    </div>
+</div>
