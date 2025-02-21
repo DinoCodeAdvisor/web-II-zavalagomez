@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from .models import Users, UsersAddress
+import json
 
 def usersIndex(request):
     users = Users.objects.filter(usersaddress__isnull=True)
@@ -23,6 +24,19 @@ def usersCool(request):
 
 def createUserView(request):
     return render(request, "users/create.html")
+
+
+def createUserByFetch(request):
+    body_unicode = request.body.decode('utf-8')
+    body = json.loads(body_unicode)
+    data = {
+        "name": body.get("name"),
+        "email": body.get("email"),
+        "age": body.get("age"),
+        "rfc": body.get("rfc"),
+        "photo": body.get("photo")
+    }
+    return JsonResponse(data)
 
 def createUser(request):
     data = {}
