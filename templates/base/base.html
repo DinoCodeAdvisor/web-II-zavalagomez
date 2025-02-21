@@ -4,20 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>DinoSchema</title>
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     {% block styles %}
     {% endblock %}
 </head>
-<body>
+<body class="flex flex-col h-full">
 
+    <!-- Header (Always on top) -->
     {% include 'base/header.html' %}
 
-    <main>
+    <!-- Main Content (Expands to fill space) -->
+    <main class="h-full">
         {% block content %}
         {% endblock %}
     </main>
 
+    <!-- Footer (Always at the bottom) -->
     {% include 'base/footer.html' %}
     
 </body>

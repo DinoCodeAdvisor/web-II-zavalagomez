@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Not Home</title>
-    {% load static %}
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-</head>
-<body>
-    <h1>{{titulo}}</h1>
-
-    <div class="container mx-auto p-6 flex gap-2 flex-wrap">
-        <div class="bg-white shadow-md rounded-lg p-4 mb-4 border border-gray-200">
+{% extends 'base/base.html' %} {% block content %}
+<div class="w-full h-screen flex content-center justify-center">
+    <div class="mx-auto p-6 flex gap-2 w-full">
+        <div class="w-full bg-white shadow-md rounded-lg p-4 mb-4 border border-gray-200">
             <h2 class="text-xl font-semibold text-gray-800">User: {{ user.name }}</h2>
             <p class="text-gray-600">ID: <span class="font-medium">{{ user.id }}</span></p>
             <p class="text-gray-600">Email: <span class="font-medium">{{ user.email }}</span></p>
@@ -25,10 +15,10 @@
             </div>
     
             <!-- Addresses -->
-            <div class="mt-4">
-                <h3 class="text-lg font-semibold text-gray-700">Addresses:</h3>
+            <h3 class="text-lg font-semibold text-gray-700">Addresses:</h3>
+            <div class="mt-4 flex flex-wrap gap-2 w-full">
                 {% for address in user.usersaddress_set.all %}
-                <div class="bg-gray-100 p-3 rounded-md mt-2 border">
+                <div class="bg-gray-100 p-3 rounded-md mt-2 border flex flex-col max-w-100">
                     <p class="text-gray-700">Street: <span class="font-medium">{{ address.street }}</span></p>
                     <p class="text-gray-700">Zip Code: <span class="font-medium">{{ address.zip_code }}</span></p>
                     <p class="text-gray-700">City: <span class="font-medium">{{ address.city }}</span></p>
@@ -40,6 +30,10 @@
             </div>
         </div>
     </div>    
+</div>
+    
 
-</body>
-</html>
+{% endblock %} 
+
+{% block scripts %}
+{% endblock %}

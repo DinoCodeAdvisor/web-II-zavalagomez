@@ -1,3 +1,12 @@
-<nav class="shadow-lg">
-    <h1 class="font-bold">This is the navbar</h1>
+<nav class="bg-blue-600 p-4 shadow-lg">
+    <div class="container mx-auto flex justify-between items-center">
+        <!-- Logo -->
+        <a href="{% url 'homepage' %}" class="text-white text-xl font-bold">DinoSchema</a>
+
+        <!-- Links -->
+        <div class="space-x-4">
+            <a href="{% url 'usersIndex' %}" class="text-white hover:underline">List Users</a>
+            <a href="{% url 'createUser' %}" class="text-white hover:underline">Create User</a>
+        </div>
+    </div>
 </nav>

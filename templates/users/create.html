@@ -1,39 +1,48 @@
-{% extends 'base/base.html' %}
+{% extends 'base/base.html' %} {% block content %}
 
-{% block content %}
+<div class="w-full h-full justify-center items-center content-center">
+  <h1 class="text-6xl font-bold justify-center text-center w-full">
+    Crear usuario
+  </h1>
 
-<h1 class="text-6xl font-bold justify-center text-center w-full">Crear usuario</h1>
+  <h3 class="text-center">{{message}} - {{status}} - {{user.name}}</h3>
 
-<h3>{{message}} - {{status}} - {{user.name}}</h3>
-
-<form id="create-user-form" method="POST" action="{% url 'createUser' %}"
-    class="bg-white shadow-md flex flex-col justify-center items-center">
-
-    <input type="hidden" id="csrf_token" value="{{csrf_token}}">
+  <form
+    id="create-user-form"
+    method="POST"
+    action="{% url 'createUser' %}"
+    class="bg-white h-auto flex flex-col justify-center items-center"
+  >
+    <input type="hidden" id="csrf_token" value="{{csrf_token}}" />
 
     <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required class="border">
+    <input type="text" id="name" name="name" required class="border" />
 
     <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required class="border">
+    <input type="email" id="email" name="email" required class="border" />
 
     <label for="age">Age:</label>
-    <input type="number" id="age" name="age" required class="border">
+    <input type="number" id="age" name="age" required class="border" />
 
     <label for="rfc">RFC:</label>
-    <input type="text" id="rfc" name="rfc" required class="border">
+    <input type="text" id="rfc" name="rfc" required class="border" />
 
     <label for="photo">Photo URL:</label>
-    <input type="text" id="photo" name="photo" required class="border">
+    <input type="text" id="photo" name="photo" required class="border" />
 
-    <button id="create-user-button" class="border bg-gray-300 font-bold w-[200px]">Create User</button>
-</form>
-{% endblock %}
+    <button
+      id="create-user-button"
+      class="border bg-gray-300 font-bold w-[200px] mt-4"
+    >
+      Create User
+    </button>
+  </form>
+</div>
 
-{% block scripts %}
+{% endblock %} {% block scripts %}
 
 <script>
-    const USER_CREATE_URL = "{% url 'createUserByFetch' %}";
+  const USER_CREATE_URL = "{% url 'createUserByFetch' %}";
 </script>
 {% load static %}
 <script src="{% static 'js/user.js' %}"></script>
