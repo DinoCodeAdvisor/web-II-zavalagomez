@@ -43,7 +43,7 @@
   <!-- Addresses -->
   <div class="mt-4 px-4">
     <h3 class="text-lg font-semibold text-gray-700">Addresses:</h3>
-    {% for address in user.usersaddress_set.all %}
+    {% for address in addresses %}
     <div class="bg-gray-100 p-3 rounded-md mt-2 border">
         <p class="text-gray-700">Street: <span class="font-medium">{{ address.street }}</span></p>
         <p class="text-gray-700">Zip Code: <span class="font-medium">{{ address.zip_code }}</span></p>
@@ -55,7 +55,9 @@
     {% endfor %}
 </div>
 
-{% endblock %} {% block scripts %}
+{% endblock %} 
+
+{% block scripts %}
 
 <script>
 </script>
