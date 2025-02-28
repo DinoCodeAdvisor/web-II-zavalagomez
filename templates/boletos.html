@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+    <section class="w-full flex flex-row gap-4 mt-10 justify-center p-4">
+
+        <div class="flex flex-wrap gap-4 w-full justify-between px-4">
+            {% for boleto in boletos %}
+                {% include 'components/BoletoItem.html' with title=boleto.id localidad=boleto.evento_id.localidad_id.name precio=boleto.precio %}
+            {% endfor %}
+        </div>
+
+    </section>
+
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

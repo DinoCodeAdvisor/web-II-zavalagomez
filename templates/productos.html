@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+    <section class="w-full flex flex-row gap-4 mt-10 justify-center p-4">
+
+        <div class="flex flex-wrap gap-4 w-full justify-between px-4">
+            {% for producto in productos %}
+                {% include 'components/ProductoItem.html' with title=producto.name localidad=producto.localidad_id.name precio=producto.precio %}
+            {% endfor %}
+        </div>
+
+    </section>
+
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

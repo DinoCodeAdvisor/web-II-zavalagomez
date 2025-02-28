@@ -1,12 +1,14 @@
-<nav class="bg-blue-600 p-4 shadow-lg">
+<nav class="bg-gray-600 p-4 shadow-lg">
     <div class="container mx-auto flex justify-between items-center">
         <!-- Logo -->
-        <a href="{% url 'homepage' %}" class="text-white text-xl font-bold">DinoSchema</a>
+        <a href="{% url 'homepage' %}" class="text-white text-xl font-bold">DinoCarnival</a>
 
-        <!-- Links -->
+        <!-- Links {porcentaje url 'urlName' porcentaje} -->
         <div class="space-x-4">
-            <a href="{% url 'usersIndex' %}" class="text-white hover:underline">List Users</a>
-            <a href="{% url 'createUser' %}" class="text-white hover:underline">Create User</a>
+            <a href="{% url 'eventos' %}" class="text-white hover:underline">Eventos</a>
+            <a href="{% url 'boletos' %}" class="text-white hover:underline">Boletos</a>
+            <a href="{% url 'productos' %}" class="text-white hover:underline">Productos</a>
+            <a href="/admin" class="text-white hover:underline">Admin</a>
         </div>
     </div>
 </nav>

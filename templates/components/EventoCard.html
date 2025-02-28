@@ -1,0 +1,12 @@
+<div class="max-w-2xl mx-auto bg-white border border-gray-300 rounded-lg shadow-lg flex">
+    {% load static %}
+    <img class="w-1/3 object-cover rounded-l-lg" src="{% static '/photos/Carnaval-4.jpg' %}" alt="Evento">
+    <div class="p-6 w-2/3">
+        <h2 class="text-xl font-bold mb-2">{{title}}</h2>
+        <p class="font-semibold"><span class="text-black">Localidad:</span> {{localidad}}</p>
+        <p class="font-semibold mt-2">Descripción:</p>
+        <p class="text-gray-700 mt-1">
+            {{descripcion}}
+        </p>
+    </div>
+</div>

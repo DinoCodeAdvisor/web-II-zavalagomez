@@ -1,0 +1,20 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+    <h2 class="text-6xl font-bold w-full text-center mt-10">Eventos</h2>
+
+    <section class="w-full flex flex-row gap-4 mt-10 justify-center p-4">
+
+        <div class="flex flex-wrap gap-4 w-full px-4">
+            {% for evento in eventos %}
+                {% include 'components/EventoItem.html' with title=evento.name localidad=evento.localidad_id.name descripcion=evento.descripcion %}
+            {% endfor %}
+        </div>
+
+    </section>
+
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
