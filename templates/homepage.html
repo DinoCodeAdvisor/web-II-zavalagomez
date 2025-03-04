@@ -2,17 +2,20 @@
 
 {% block content %}
 
-    <div class="flex w-fgap-4 justify-center content-center gap-4 mt-4">
-        {% load static %}
-        <img src="{% static '/photos/Carnaval-4.jpg' %}" alt="Carnaval-4" class="w-auto h-94 object-cover"/>
-        <img src="{% static '/photos/Carnaval-5.jpg' %}" alt="Carnaval-5" class="w-auto h-94 object-cover"/>
-    </div>
+{% load static %}
+    <div class="grid gap-4  p-10">
+        <!-- First Row (2 images) -->
+        <div class="grid grid-cols-2 gap-4">
+            <img src="{% static '/photos/Carnaval-4.jpg' %}" alt="Carnival Image 1" class="h-64 md:h-80 w-full object-cover">
+            <img src="{% static '/photos/Carnaval-5.jpg' %}" alt="Carnival Image 2" class="h-64 md:h-80 w-full object-cover">
+        </div>
 
-    <div class="flex gap-4 justify-center content-center mt-4">
-        {% load static %}
-        <img src="{% static '/photos/Carnaval-1.avif' %}" alt="Carnaval-1" class="w-94 h-auto object-cover"/>
-        <img src="{% static '/photos/Carnaval-2.jpg' %}" alt="Carnaval-2" class="w-94 h-auto object-cover"/>
-        <img src="{% static '/photos/Carnaval-3.avif' %}" alt="Carnaval-3" class="w-94 h-auto object-cover"/>
+        <!-- Second Row (3 images) -->
+        <div class="grid grid-cols-3 gap-4">
+            <img src="{% static '/photos/Carnaval-2.jpg' %}" alt="Carnival Image 3" class="h-64 md:h-80 w-full object-cover">
+            <img src="{% static '/photos/Carnaval-1.avif' %}" alt="Carnival Image 4" class="h-64 md:h-80 w-full object-cover">
+            <img src="{% static '/photos/Carnaval-3.avif' %}" alt="Carnival Image 5" class="h-64 md:h-80 w-full object-cover">
+        </div>
     </div>
 
     <h2 class="text-6xl font-bold w-full text-center mt-10">Noticias</h2>
