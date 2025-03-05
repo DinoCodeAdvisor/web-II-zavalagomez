@@ -85,8 +85,6 @@ createButton.addEventListener("click", function (event) {
                 errorCreateMessage.innerText =
                     body.error || "An error occurred";
             } else if (status >= 200 && status < 300) {
-                console.log(status)
-                console.log(body.data)
                 successCreateText.classList.remove("hidden");
                 
                 addRecordToTable(
@@ -106,8 +104,8 @@ createButton.addEventListener("click", function (event) {
 
 function deleteEvento(id)
 {
+    hideTexts();
     event.preventDefault();
-    console.log("Borrar evento:", id)
     
     const token = document.querySelector("#csrf_token").value;
     fetch(EVENTO_DELETE_URL, {
