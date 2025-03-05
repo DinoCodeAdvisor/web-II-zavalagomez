@@ -1,0 +1,134 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+    <section class="w-full grid grid-cols-2 gap-4 mt-10 justify-center p-4">
+
+        <div class="">
+            <h2 class="text-xl text-center font-bold mb-2">Agregar evento</h2>
+            <form id="create-evento-form" action="POST">
+                <input type="hidden" id="csrf_token" value="{{csrf_token}}" />
+
+                <label for="name" class="font-bold">Nombre del evento</label>
+                <input type="text" class="w-full border px-4 py-2" placeholder="Nombre del evento" name="name" required>
+                
+                <label for="descripcion" class="font-bold">Descripción del evento</label>
+                <input type="text" class="w-full border px-4 py-2" placeholder="Descripción del evento" name="descripcion" required>
+
+                <label for="fecha_inicio" class="font-bold mt-2">Fecha inicio</label>
+                <input type="datetime-local" class="w-full border px-4 py-2" name="fecha_inicio" required>
+
+                <label for="fecha_final" class="font-bold mt-2">Fecha final</label>
+                <input type="datetime-local" class="w-full border px-4 py-2" name="fecha_fin" required>
+
+                <label for="localidad_id" class="font-bold mt-2">Localidad</label>
+                <select type="datetime-local" class="w-full border px-4 py-2" name="localidad_id" required>
+                    {% for localidad in localidades %}
+
+                        <option value="{{localidad.id}}">{{localidad.name}}</option>
+
+                    {% endfor %}
+                </select>
+
+                <!-- Button Section -->
+                <div class="flex mt-2 justify-center w-full">
+                    <button id="create-evento-button" class="bg-gray-800 text-white text-center font-semibold px-10 py-2 rounded-lg hover:bg-gray-600 transition">
+                        Agregar
+                    </button>
+                </div>
+            </form>
+
+            <!-- Alerts section -->
+            <div class="flex mt-2 justify-center text-center w-full">
+                <p id="sucesss-create-text" class="hidden text-green-400 font-bold">Registro agregado correctamente</p>
+                <p id="error-create-text" class="hidden text-red-400 font-bold">Error al agregar registro: <span id="error-create-message"></span></p>
+                <p id="sucesss-delete-text" class="hidden text-green-400 font-bold">Registro eliminado correctamente</p>
+                <p id="error-delete-text" class="hidden text-red-400 font-bold">Error al eliminar registro: <span id="error-delete-message"></span></p>
+            </div>
+            
+        </div>
+
+        <div class="">
+            <h2 class="text-xl text-center font-bold mb-2">Reglas</h2>
+            <p>La fecha fin no puede ser menor a la fecha inicio</p>
+            <p>La fecha inicio no puede ser mayor al dia de hoy</p>
+            <p>No puedes agregar dos eventos seguidos de la misma localidad</p>
+            <p>Mostrar mensaje de guardado o erro en caso de fallar</p>
+            <p>El envio de información debe ser por medio del metodo FETCH de JS</p>
+            <p>El boton de "Eliminar" debe ser por medio del metodo FETCH de JS</p>
+        </div>
+    </section>
+
+    <section class="w-full mt-2">
+        <h1 class="text-3xl font-bold mb-2 px-10">Eventos agregados recientemente</h2>
+        
+    <div class="relative overflow-x-auto px-4">
+        <table class="w-full text-center border text-sm text-left rtl:text-right text-gray-900 ">
+            <thead class="text-xs text-white uppercase bg-gray-700 border">
+                <tr>
+                    <th scope="col" class="px-6 py-3 text-center border">
+                        Nombre
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-center border">
+                        Fecha inicio
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-center border">
+                        Fecha fin
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-center border">
+                        Localidad
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-center border">
+                        Acciones
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="recent-events-table">
+                {% for evento in eventos %}
+
+                <tr id="evento-{{evento.id}}" class="bg-white border border-gray-500">
+                
+                    <th scope="row" class="border text-center py-4 font-medium text-gray-900 whitespace-nowrap">
+                        {{evento.name}}
+                    </th>
+                    <td class="px-6 py-4 text-center border">
+                        {{evento.fecha_inicio}}
+                    </td>
+                    <td class="px-6 py-4 text-center border">
+                        {{evento.fecha_fin}}
+                    </td>
+                    <td class="px-6 py-4 text-center border">
+                        {{evento.localidad_id.name}}
+                    </td>
+                    <td class="px-6 py-4 text-center border">
+                        <!-- Button Section -->
+                        <div class="flex mt-2 justify-center w-full">
+                            <button onClick="deleteEvento({{evento.id}})" id="evento-delete-{{evento.id}}" 
+                                class="bg-red-800 text-white text-center font-semibold px-10 py-2 rounded-lg hover:bg-gray-600 transition">
+                                Eliminar
+                            </button>
+                        </div>
+                    </td>
+                    
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+
+    </section>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Need to create this route<
+    const EVENTO_CREATE_URL = "{% url 'createEventoByFetch' %}"
+    const EVENTO_DELETE_URL = "{% url 'deleteEventoByFetch' %}"
+</script>
+
+{% load static %}
+<script src="{% static 'js/evento.js' %}"></script>
+
+{% endblock %}

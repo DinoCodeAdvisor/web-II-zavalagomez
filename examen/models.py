@@ -5,15 +5,16 @@ class Localidad(models.Model):
     status = models.BooleanField(default=True)
 
     def __str__(self):
-        return self.name + str(self.status)
+        return self.name
 
 class Producto(models.Model):
     name = models.CharField(max_length=200)
     precio = models.DecimalField(max_digits=8, decimal_places=2)
     localidad_id = models.ForeignKey(Localidad, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
-        return self.name + str(self.precio) + str(localidad_id)
+        return self.name
 
 
 class Evento(models.Model):
@@ -24,7 +25,7 @@ class Evento(models.Model):
     localidad_id = models.ForeignKey(Localidad, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.name + str(localidad_id)
+        return self.name
 
 class Boleto(models.Model):
     precio = models.DecimalField(max_digits=8, decimal_places=2)
@@ -33,7 +34,7 @@ class Boleto(models.Model):
     fecha = models.DateTimeField(auto_now_add=True, blank=True)
 
     def __str__(self):
-        return str(self.evento_id) + str(precio)
+        return str(self.evento_id)
 
 class Noticia(models.Model):
     title = models.CharField(max_length=100)

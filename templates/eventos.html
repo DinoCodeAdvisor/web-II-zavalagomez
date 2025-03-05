@@ -4,11 +4,18 @@
 
     <h2 class="text-6xl font-bold w-full text-center mt-10">Eventos</h2>
 
+    <!-- Button Section -->
+    <div class="grid grid-cols-3 w-full px-10">
+        <a href="{% url 'create_evento' %}" class="bg-gray-800 text-white text-center font-semibold px-10 py-2 rounded-lg hover:bg-gray-600 transition">
+            + Agregar Evento
+        </a>
+    </div>
+
     <section class="w-full flex flex-row gap-4 mt-10 justify-center p-4">
 
         <div class="grid grid-cols-3 gap-4 w-full px-4">
             {% for evento in eventos %}
-                {% include 'components/EventoItem.html' with title=evento.name localidad=evento.localidad_id.name descripcion=evento.descripcion %}
+                {% include 'components/EventoItem.html' with title=evento.name localidad=evento.localidad_id.name descripcion=evento.descripcion id=evento.id %}
             {% endfor %}
         </div>
 

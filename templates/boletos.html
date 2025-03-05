@@ -2,11 +2,16 @@
 
 {% block content %}
 
-    <section class="w-full flex flex-row gap-4 mt-10 justify-center p-4">
+    <section class="w-full flex flex-row gap-4 mt-10 justify-center content-center align-center p-4">
 
-        <div class="grid grid-cols-4 gap-4 w-full justify-between px-4">
+        <div class="grid grid-cols-4 gap-4 w-full justify-between px-4 h-full">
             {% for boleto in boletos %}
                 {% include 'components/BoletoItem.html' with title=boleto.id localidad=boleto.evento_id.localidad_id.name precio=boleto.precio %}
+            {% empty %}
+            <p class="text-gray-500 italic text-center">Este evento aun no tiene boletos disponibles.</p>
+            <p class="text-gray-500 italic text-center">Este evento aun no tiene boletos disponibles.</p>
+            <p class="text-gray-500 italic text-center">Este evento aun no tiene boletos disponibles.</p>
+            <p class="text-gray-500 italic text-center">Este evento aun no tiene boletos disponibles.</p>
             {% endfor %}
         </div>
 

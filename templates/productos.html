@@ -2,8 +2,15 @@
 
 {% block content %}
 
-    <section class="w-full flex flex-row gap-4 mt-10 justify-center p-4">
+    <!-- Button Section -->
+    <div class="grid grid-cols-3 w-full px-10 mt-10">
+        <a href="{% url 'create_producto' %}" class="bg-gray-800 text-white text-center font-semibold px-10 py-2 rounded-lg hover:bg-gray-600 transition">
+            + Agregar producto
+        </a>
+    </div>
 
+    <section class="w-full flex flex-row gap-4 mt-10 justify-center p-4">
+    
         <div class="grid grid-cols-4 gap-4 w-full justify-between px-4">
             {% for producto in productos %}
                 {% include 'components/ProductoItem.html' with title=producto.name localidad=producto.localidad_id.name precio=producto.precio %}
