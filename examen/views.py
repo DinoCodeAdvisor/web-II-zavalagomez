@@ -91,10 +91,10 @@ def agregar_evento_fetch(request):
 
         # Make sure that fecha_inicio is not greater than today
         current_date_time = datetime.now()
-        formatted_date_time = current_date_time.strftime('%Y-%m-%dT%H:%M')
+        formatted_date_time = current_date_time.strftime('%Y-%m-%d')
 
-        if fecha_inicio > formatted_date_time:
-            return JsonResponse({"error": "La fecha inicio no puede ser mayor a hoy."}, status=400)
+        if fecha_inicio < formatted_date_time:
+            return JsonResponse({"error": "La fecha inicio no puede ser menor a hoy."}, status=400)
         
         # Make sure that there are no consecutive events of the same localidad
         localidad =  get_object_or_404(Localidad, id=localidad_id)
