@@ -132,8 +132,7 @@ def eliminar_evento_fetch(request):
 
         id = body.get("evento_id");
         
-        evento = get_object_or_404(Evento, id=id)
-
+        evento = Evento.objects.filter(id=id).first()
         if not evento:
             return JsonResponse({"error": "Ese registro no existe."})
         
@@ -218,9 +217,8 @@ def eliminar_producto_fetch(request):
         body = json.loads(body_unicode);
 
         id = body.get("producto_id");
-        print(id)
-        producto = get_object_or_404(Producto, id=id)
-
+        
+        producto = Producto.objects.filter(id=id).first()
         if not producto:
             return JsonResponse({"error": "Ese registro no existe."})
         
