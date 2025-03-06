@@ -28,7 +28,7 @@ function addRecordToTable(id, name, precio, fecha_creacion, localidad) {
             </td>
             <td class="px-6 py-4 text-center border">
                 <div class="flex mt-2 justify-center w-full">
-                    <button onClick="deleteProducto({{producto.id}})" id="producto-delete-${id}" class="bg-red-800 text-white text-center font-semibold px-10 py-2 rounded-lg hover:bg-gray-600 transition">
+                    <button onClick="deleteProducto(${id})" id="producto-delete-${id}" class="bg-red-800 text-white text-center font-semibold px-10 py-2 rounded-lg hover:bg-gray-600 transition">
                         Eliminar
                     </button>
                 </div>
@@ -91,7 +91,7 @@ createButton.addEventListener("click", function (event) {
                     body.data.id,
                     body.data.name,
                     body.data.precio,
-                    body.data.fecha_creacion,
+                    body.data.created_at,
                     body.data.localidad_name
                 );
             }

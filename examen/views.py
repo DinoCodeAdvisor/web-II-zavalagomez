@@ -202,6 +202,7 @@ def agregar_producto_fetch(request):
 
         data = model_to_dict(producto)
         data["localidad_name"] = localidad.name
+        data["created_at"] = producto.created_at
 
         return JsonResponse({"success": "Producto agregado exitosamente!", "data": data}, status=201)
 
