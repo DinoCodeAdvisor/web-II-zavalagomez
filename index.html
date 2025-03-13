@@ -11,12 +11,15 @@
     <script src="https://unpkg.com/@babel/standalone"></script>
     <script type="text/babel" src="components/MyButton.jsx"></script>
     <link rel="stylesheet" href="css/style.css">
+    <!-- TailwindCSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
     <div id="root">
 
     </div>
 </body>
+<script type="text/babel" src="components/StudentCard.jsx"></script>
 <script type="text/babel">
     function App()
     {
@@ -26,7 +29,18 @@
         const [ counter2, setCounter2 ] = useState(0)
         const [ visible, setVisible ] = useState(true)
         const [ alumnos, setAlumnos ] = useState(["Juan", "Pedro", "Maria", "Ana"])
-        const [ alumnoCalificacion, setAlumnosCalificacion ] = useState([{nombre: "Juan", calificacion: 10},{nombre: "Pepe", calificacion: 10},{nombre: "Pedro", calificacion: 5},{nombre: "Ana", calificacion: 9},])
+        const [ alumnoCalificacion, setAlumnosCalificacion ] = useState([
+        { nombre: "Juan", calificacion: 10, materia: "Engineering" },
+        { nombre: "Pepe", calificacion: 9, materia: "Math" },
+        { nombre: "Maria", calificacion: 8, materia: "Science" },
+        { nombre: "Pedro", calificacion: 7, materia: "History" },
+        { nombre: "Ana", calificacion: 6, materia: "English" },
+        { nombre: "Luis", calificacion: 9, materia: "Physics" },
+        { nombre: "Carla", calificacion: 10, materia: "Chemistry" },
+        { nombre: "Miguel", calificacion: 5, materia: "Biology" },
+        { nombre: "Sofia", calificacion: 8, materia: "Geography" },
+        { nombre: "Diego", calificacion: 7, materia: "Philosophy" }
+        ])
         
         function verParrafo()
         {
@@ -43,14 +57,15 @@
                 <MyButton title="Sumar al contador 2" counter={counter2} setCounter={setCounter2}   />
                 <h2>Contador-2: {counter2}</h2>
                 
-                <div className="container">                
-                    {alumnoCalificacion.filter(alumno => alumno.calificacion >= 8).map((alumno, index) => {
-                        return <div id="alumno-{{index}}"  style={{display: visible ? 'block': 'none'}}>Este es el alumno {alumno.nombre} y saco {alumno.calificacion}</div>
-                    })}
-                    
+
+                <div className="grid grid-cols-3 gap-[50px]">                
+                    {alumnoCalificacion.map((alumno, index) => (
+                        <div>
+                            <StudentCard key={index} student={alumno.nombre} subject={alumno.materia || "No subject specified"} score={alumno.calificacion} />
+                        </div>
+                    ))}
                 </div>
 
-                <button onClick={verParrafo}>Ver parrafo</button>
                 
             </div>
         )
