@@ -4,84 +4,122 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dino-React</title>
-
+    
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
     <!-- Agregar el script de Babel -->
     <script src="https://unpkg.com/@babel/standalone"></script>
-    <script type="text/babel" src="components/MyButton.jsx"></script>
-    <link rel="stylesheet" href="css/style.css">
     <!-- TailwindCSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Import React Components -->
+     <script type="text/babel" src="/context/count-context.jsx"></script>
 </head>
 <body>
     <div id="root">
 
-    </div>
+    </div>    
 </body>
-<script type="text/babel" src="components/StudentCard.jsx"></script>
+
 <script type="text/babel">
+    const { createContext, useState } = React;
+    // const CountContext = createContext(null);
+    const { CountContext, CountContextProvider } = window;
+    const UserContext = createContext(null);
+
     function App()
     {
-        const { useState } = React;
-        //0 is the starting value for this variables
-        const [ counter, setCounter ] = useState(0) 
-        const [ counter2, setCounter2 ] = useState(0)
-        const [ visible, setVisible ] = useState(true)
-        const [ alumnos, setAlumnos ] = useState(["Juan", "Pedro", "Maria", "Ana"])
-        const [ alumnoCalificacion, setAlumnosCalificacion ] = useState([
-        { nombre: "Juan", calificacion: 10, materia: "Engineering" },
-        { nombre: "Pepe", calificacion: 9, materia: "Math" },
-        { nombre: "Maria", calificacion: 8, materia: "Science" },
-        { nombre: "Pedro", calificacion: 7, materia: "History" },
-        { nombre: "Ana", calificacion: 6, materia: "English" },
-        { nombre: "Luis", calificacion: 9, materia: "Physics" },
-        { nombre: "Carla", calificacion: 10, materia: "Chemistry" },
-        { nombre: "Miguel", calificacion: 5, materia: "Biology" },
-        { nombre: "Sofia", calificacion: 8, materia: "Geography" },
-        { nombre: "Diego", calificacion: 7, materia: "Philosophy" }
-        ])
-        
-        function verParrafo()
-        {
-            setVisible(!visible);
-        }
+        const [ count, setCount ] = useState(0);
+        const [ user, setUser ] = useState({
+            name: "Juan",
+            age: 25,
+            email: "juan@gmail.com"
+        })
 
-        return(
+        return (
             <div>
-                <h1>Hola mundo</h1>
-                <p>Esto es react</p>
-                <MyButton title="Sumar al contador 1"  counter={counter} setCounter={setCounter} />
-                <h2>Contador-1: {counter}</h2>
-                <br/>
-                <MyButton title="Sumar al contador 2" counter={counter2} setCounter={setCounter2}   />
-                <h2>Contador-2: {counter2}</h2>
-                
+                <h1>This is working</h1>
+                <CountContextProvider value={{ count, setCount }}>
 
-                <div className="grid grid-cols-3 gap-[50px]">                
-                    {alumnoCalificacion.map((alumno, index) => (
-                        <div>
-                            <StudentCard key={index} student={alumno.nombre} subject={alumno.materia || "No subject specified"} score={alumno.calificacion} />
-                        </div>
-                    ))}
-                </div>
+                    <ComponentA />    
+                    <ComponentB />    
 
-                
+                </CountContextProvider>
+                <UserContext.Provider value={{ user, setUser }}>
+                    <SearchUser />
+                    <ProfileUser />
+                </UserContext.Provider>
             </div>
         )
     }
 
-    function saludar(params)
+    function ProfileUser()
     {
-        alert('Hola Mundo');
+        const {user, setUser} = React.useContext(UserContext);
+        return (
+            <div>
+                <div>
+                    <h2>Perfil de usuario</h2>
+                    <p>Nombre: {user.name}</p>
+                    <p>Edad: {user.age}</p>
+                    <p>Email: {user.email}</p>
+                </div>
+            </div>
+        )
     }
 
-    function despedir(params)
+    function SearchUser()
     {
-        alert('Adios Mundo')
+        const {user, setUser} = React.useContext(UserContext)
+        return (
+            <div className="flex flex-col gap-4 border border-black">
+                <label>Nombre a buscar</label>
+                <input value={user.name} onChange={buscarUsuario}/>
+
+                <label>Edad a buscar</label>
+                <input value={user.age}/>
+
+                <label>Email a buscar</label>
+                <input value={user.email}/>
+            </div>
+        ) 
     }
 
-    const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(<App/>);
+    function buscarUsuario(event)
+    {
+        const { user, setUser } = React.useContext(UserContext);
+
+        setUser({
+            name: event.target.value,
+            age: user.age,
+            email: user.email
+        })
+    }
+
+    function ComponentA()
+    {
+        const { count, setCount } = React.useContext(CountContext);
+        console.log("Render Component A")
+        return (
+            <div>
+                <h1>Component A - Contador: { count }</h1>
+                <button onClick={() => setCount( count + 1 )}>Incrementar</button>
+            </div>
+        )
+    }
+
+    function ComponentB()
+    {
+        const { countRestar, setCountRestar } = React.useContext(CountContext);
+        console.log("Render Component B")
+        return (
+            <div>
+                <h1>Component B - Contador: { countRestar }</h1>
+                <button onClick={() => setCountRestar( countRestar - 1 )}>Restar</button>
+            </div>
+        )
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<App />)
 </script>
 </html>

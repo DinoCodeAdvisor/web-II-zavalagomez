@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dino-React</title>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <!-- Agregar el script de Babel -->
+    <script src="https://unpkg.com/@babel/standalone"></script>
+    <script type="text/babel" src="components/MyButton.jsx"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- TailwindCSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="root">
+
+    </div>
+</body>
+<script type="text/babel" src="components/StudentCard.jsx"></script>
+<script type="text/babel">
+    function App()
+    {
+        const { useState } = React;
+        //0 is the starting value for this variables
+        const [ counter, setCounter ] = useState(0) 
+        const [ counter2, setCounter2 ] = useState(0)
+        const [ visible, setVisible ] = useState(true)
+        const [ alumnos, setAlumnos ] = useState(["Juan", "Pedro", "Maria", "Ana"])
+        const [ alumnoCalificacion, setAlumnosCalificacion ] = useState([
+        { nombre: "Juan", calificacion: 10, materia: "Engineering" },
+        { nombre: "Pepe", calificacion: 9, materia: "Math" },
+        { nombre: "Maria", calificacion: 8, materia: "Science" },
+        { nombre: "Pedro", calificacion: 7, materia: "History" },
+        { nombre: "Ana", calificacion: 6, materia: "English" },
+        { nombre: "Luis", calificacion: 9, materia: "Physics" },
+        { nombre: "Carla", calificacion: 10, materia: "Chemistry" },
+        { nombre: "Miguel", calificacion: 5, materia: "Biology" },
+        { nombre: "Sofia", calificacion: 8, materia: "Geography" },
+        { nombre: "Diego", calificacion: 7, materia: "Philosophy" }
+        ])
+        
+        function verParrafo()
+        {
+            setVisible(!visible);
+        }
+
+        return(
+            <div>
+                <h1>Hola mundo</h1>
+                <p>Esto es react</p>
+                <MyButton title="Sumar al contador 1"  counter={counter} setCounter={setCounter} />
+                <h2>Contador-1: {counter}</h2>
+                <br/>
+                <MyButton title="Sumar al contador 2" counter={counter2} setCounter={setCounter2}   />
+                <h2>Contador-2: {counter2}</h2>
+                
+
+                <div className="grid grid-cols-3 gap-[50px]">                
+                    {alumnoCalificacion.map((alumno, index) => (
+                        <div>
+                            <StudentCard key={index} student={alumno.nombre} subject={alumno.materia || "No subject specified"} score={alumno.calificacion} />
+                        </div>
+                    ))}
+                </div>
+
+                
+            </div>
+        )
+    }
+
+    function saludar(params)
+    {
+        alert('Hola Mundo');
+    }
+
+    function despedir(params)
+    {
+        alert('Adios Mundo')
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App/>);
+</script>
+</html>
