@@ -4,7 +4,7 @@ import MyInput from '../components/Form/MyInput';
 export default function Login()
 {
     return (
-        <div>
+        <div className="page-container">
             <div className="containerLogin">
                 <h3>Login</h3>
                 <form className="formLogin">

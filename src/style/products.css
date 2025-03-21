@@ -13,14 +13,15 @@
     display: flex;
     flex-direction: row;
     row-gap: 0.5rem;
-    width: 80%;
-    border: black 1px solid;
+    width: 70%;
     margin-bottom: 1rem;
+    align-items: center;
+    justify-content: center;
 }
 
 .product-image
 {
-    width: 35%;
+    width: 15%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,6 +30,7 @@
 img {
     width: 100%;
     height: 100%;
+    border-radius: 10%;
 }
 
 .product-details
@@ -40,4 +42,17 @@ img {
 
     width: 65%;
     padding: 10px;
+}
+
+.container-products-details
+{
+    margin-left: 1rem;
+    text-align: start;
+}
+
+.products-title
+{
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 2rem;
 }

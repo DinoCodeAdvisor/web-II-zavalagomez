@@ -5,6 +5,7 @@ import About from '../page/About'
 import Contact from '../page/Contact'
 import Login from "../page/Login"
 import Products from '../page/Products'
+import ProductDetails from "../page/ProductDetails"
 
 export default function MyRouters()
 {
@@ -15,6 +16,7 @@ export default function MyRouters()
             <Route path="/contact" element={<Contact/>}/>
             <Route path="/login" element={<Login/>}/>
             <Route path="/products" element={<Products/>}/>
+            <Route path="/product-details" element={<ProductDetails/>}/>
         </Routes>
     )
 }

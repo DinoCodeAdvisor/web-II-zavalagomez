@@ -17,6 +17,7 @@ function App() {
             <li><Link to="/contact">Contact</Link></li>
             <li><Link to="/login">Login</Link></li>
             <li><Link to="/products">Products</Link></li>
+            <li><Link to="/product-details">Product Details</Link></li>
           </ul>
         </nav>
      
