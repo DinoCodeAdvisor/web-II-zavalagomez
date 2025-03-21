@@ -1,0 +1,32 @@
+.containerLogin{
+    border: 1px red solid;
+    width: 50%;
+    margin:auto;
+}
+
+.containerLogin h3
+{
+    text-align: center;
+    padding: 10px;
+}
+
+.formLogin {
+    display: flex;
+    flex-direction: column;
+    column-gap: 1rem;
+}
+
+.formLogin div
+{
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formLogin div input
+{
+    padding: 15px;
+    width: 85%;
+    margin: auto;
+}
