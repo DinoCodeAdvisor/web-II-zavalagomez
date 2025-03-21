@@ -1,7 +1,11 @@
 .containerLogin{
-    border: 1px red solid;
+    border: 1px black solid;
     width: 50%;
     margin:auto;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: black;
+    color: white;
 }
 
 .containerLogin h3
@@ -29,4 +33,13 @@
     padding: 15px;
     width: 85%;
     margin: auto;
+}
+
+.formLogin button
+{
+    padding: 10px 20px;
+    border: black solid 1px;
+    border-radius: 10px;
+    background-color: red;
+    color: white;
 }
