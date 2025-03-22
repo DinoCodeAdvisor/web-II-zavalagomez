@@ -48,8 +48,8 @@ const ProductDetails = () => {
             <h5>$59.00</h5>
           </div>
           <div className="product-buttons">
-            <button>Add to cart</button>
-            <button>❤️ Add to wishlist</button>
+            <button id="add-to-cart-button">Add to cart</button>
+            <button id="add-to-wishlist-button">❤️ Add to wishlist</button>
           </div>
         </div>
       </div>

@@ -39,4 +39,113 @@
   color: gray;
 }
 
+.product-info
+{
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}
 
+.product-info h4
+{
+  margin: 0px;
+  font-size: 2rem;
+}
+
+.product-highlights
+{
+  margin: 0px;
+  text-align: start;
+}
+
+.product-specifications
+{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  background-color: #f2f4f7;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.product-specifications table, th, td
+{
+  height: 100%;
+  font-size: 20px;
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.product-specifications table
+{
+  width: 100%;
+}
+
+.product-specifications h5
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 45px;
+  height: 100%;
+
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+}
+
+.product-specifications th
+{
+  color: #9599a0;
+  font-weight: 600;
+  height: auto;
+}
+
+.product-specifications tr
+{
+  color: black;
+  font-weight: 800;
+  font: 20px;
+}
+
+.product-buttons
+{
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+#add-to-cart-button 
+{
+  width: 30%;
+  height: 100%;
+
+  background-color: blueviolet;
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#add-to-wishlist-button 
+{
+  
+  background-color: none;
+  color: black;
+  font-weight: 600;
+  font-size: 15px;
+
+  padding: 10px;
+  border: 1px solid #9599a0;
+  border-radius: 10px;
+  cursor: pointer;
+}
