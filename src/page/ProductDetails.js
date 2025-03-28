@@ -65,7 +65,7 @@ export default function ProductDetails() {
                     <tbody>
                       <tr>
                         <td>{titleCase(product.category)}</td>
-                        <td>{product.brand}</td>
+                        <td>{product.brand ?? "N/A"}</td>
                       </tr>
                     </tbody>
                   </table>
