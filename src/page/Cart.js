@@ -54,7 +54,6 @@ export default function Cart() {
 
   const canIncrement = (item) => {
     const potentialTotal = total + item.price;
-    console.log("Potential Total:",potentialTotal <= 10000)
     return potentialTotal <= 10000;
   };  
 

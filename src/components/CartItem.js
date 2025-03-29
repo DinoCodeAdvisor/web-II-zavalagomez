@@ -52,7 +52,6 @@ export default function CartItem({
   };
 
   const handleDecrease = () => {
-    console.log(canIncrement);
     if (quantity > 1) {
       updateQuantity(id, quantity - 1);
     }

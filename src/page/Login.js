@@ -69,7 +69,6 @@ function fetchLogIn(data, navigate)
         localStorage.setItem("token", data.accessToken)
         navigate("/products")       
 
-        console.log(data)
     }).catch(err => {
         console.log("error", err)
     })
