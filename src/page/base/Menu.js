@@ -44,6 +44,9 @@ export default function Menu() {
                   Carrito
                 </Link>
               </li>
+              <li>
+                <Link to="/userreducer-component">UserReducer Component</Link>
+              </li>
             </ul>
           </nav>
         </header>
