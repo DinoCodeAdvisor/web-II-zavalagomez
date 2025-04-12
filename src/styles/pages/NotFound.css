@@ -1,8 +1,8 @@
 /* General Styles */
 .not-found {
-  background-color: white;
-  color: #111;
-  font-family: Arial, sans-serif;
+  background-color: #0c0c0c;
+  color: #e0ffe9;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .not-found .container {
@@ -22,7 +22,8 @@
   margin-bottom: 1rem;
   font-size: 5rem;
   font-weight: 800;
-  color: #1d4ed8; /* Primary Blue */
+  color: #00ffae;
+  text-shadow: 0 0 20px #00ffae99;
 }
 
 /* Subtitle Styles */
@@ -30,14 +31,14 @@
   margin-bottom: 1rem;
   font-size: 2rem;
   font-weight: 700;
-  color: #111;
+  color: #a3f7dc;
 }
 
 /* Description Styles */
 .not-found .description {
   margin-bottom: 1rem;
   font-size: 1.125rem;
-  color: #6b7280; /* Gray */
+  color: #9be7c4;
 }
 
 /* Button Styles */
@@ -48,18 +49,20 @@
   padding: 0.625rem 1.25rem;
   font-size: 1rem;
   font-weight: 600;
-  background-color: #1d4ed8; /* Primary Blue */
-  color: white;
+  background-color: #00ffae;
+  color: #0c0c0c;
   border-radius: 0.375rem;
   text-decoration: none;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 10px #00ffae66;
 }
 
 .not-found .button:hover {
-  background-color: #1e40af; /* Darker Blue on Hover */
+  background-color: #00e6a0;
+  box-shadow: 0 0 20px #00ffae;
 }
 
 .not-found .button:focus {
   outline: none;
-  box-shadow: 0 0 0 2px rgba(29, 78, 216, 0.5);
+  box-shadow: 0 0 0 3px rgba(0, 255, 174, 0.5);
 }

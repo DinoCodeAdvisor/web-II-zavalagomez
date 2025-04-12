@@ -8,7 +8,7 @@ export default function Navbar() {
       <div className="navbar-container">
         <Link to="/" className="navbar-logo">
           <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Deno_2021.svg" alt="App Logo" />
-          <span>My App</span>
+          <span>The Rick & Morty App</span>
         </Link>
 
         <div className="navbar-links">

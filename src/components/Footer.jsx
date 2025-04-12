@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="footer-top">
           <Link to="/" className="footer-brand">
             <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Deno_2021.svg" alt="Logo" />
-            <span>MyApp</span>
+            <span>The Rick & Morty App</span>
           </Link>
           <ul className="footer-links">
             <li><Link to="/about">About</Link></li>
@@ -20,7 +20,7 @@ export default function Footer() {
         </div>
         <hr className="footer-separator" />
         <span className="footer-copy">
-          © 2025 <Link to="/">MyApp™</Link>. All Rights Reserved.
+          © 2025 <Link to="/">The Rick & Morty App™</Link>. All Rights Reserved.
         </span>
       </div>
     </footer>

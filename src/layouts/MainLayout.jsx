@@ -6,7 +6,7 @@ export default function MainLayout({ children }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Navbar />
-      <main style={{ flex: 1, paddingTop: '4rem', paddingRight: '2rem', paddingLeft: '2rem' }}>
+      <main style={{ flex: 1, paddingTop: '4rem' }}>
         {children}
       </main>
       <Footer />

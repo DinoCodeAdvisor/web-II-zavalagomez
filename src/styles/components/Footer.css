@@ -1,7 +1,7 @@
 .footer {
-  background-color: white;
+  background-color: #0c0c0c;
   border-radius: 0.5rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px #00ffae55;
 }
 
 .footer-container {
@@ -25,7 +25,8 @@
   text-decoration: none;
   font-size: 1.5rem;
   font-weight: 600;
-  color: black;
+  color: #00ffae;
+  text-shadow: 0 0 5px #00ffae99;
 }
 
 .footer-brand img {
@@ -43,28 +44,30 @@
 }
 
 .footer-links a {
-  color: #6b7280;
+  color: #9be7c4;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .footer-links a:hover {
   text-decoration: underline;
+  color: #00ffae;
 }
 
 .footer-separator {
   border: none;
-  border-top: 1px solid #e5e7eb;
+  border-top: 1px solid #1f1f1f;
   margin: 1.5rem 0;
 }
 
 .footer-copy {
   display: block;
   font-size: 0.875rem;
-  color: #6b7280;
+  color: #9be7c4;
   text-align: center;
 }
 
 .footer-copy a {
-  color: inherit;
+  color: #00ffae;
   text-decoration: underline;
 }
