@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from '../pages/Home';
 import NotFound from '../pages/NotFound';
+import Episodes from '../pages/Episodes';
 import MainLayout from '../layouts/MainLayout';
 
 export default function AppRouter() {
@@ -10,6 +11,7 @@ export default function AppRouter() {
       <MainLayout>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/episodes" element={<Episodes />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </MainLayout>

@@ -17,27 +17,6 @@ const portalAnimated2 = new URL(
   import.meta.url
 );
 
-const characterImages = [
-  "Alan_Trenes.webp",
-  "Beth_Espacial.webp",
-  "Cornvelious_Daniel.webp",
-  "Doctora_Wong.webp",
-  "Empleado_de_la_Casa_de_Empeno.webp",
-  "Glaxo_Slimslom.webp",
-  "Hemorragia.webp",
-  "Hormiguero.webp",
-  "Jessica.webp",
-  "Padre_Greeby_Bob.webp",
-  "Pubescent_Rick.webp",
-  "Rick_Sanchez.webp",
-  "Robodrilo.webp",
-  "Snuggles.webp",
-  "Squanchy.webp",
-  "Sr._Pantalones_de_Pop.webp",
-  "Stealy.webp",
-  "Young_Adult_Rick.webp",
-];
-
 export default function Home() {
   return (
     <div>
@@ -69,7 +48,7 @@ export default function Home() {
                   />
                 </svg>
               </Link>
-              <Link to="/characters/vote" className="btn btn-secondary">
+              <Link to="/characters" className="btn btn-secondary">
                 Vote for Characters
               </Link>
             </div>
@@ -84,9 +63,9 @@ export default function Home() {
       <section className="vote-section">
         <div className="vote-container">
           <div className="vote-image">
-            <a href="#">
+            <Link to="/characters/vote">
               <img src={portalAnimated} alt="Rick and Morty tech" />
-            </a>
+            </Link>
           </div>
           <div className="vote-content">
             <h1>Vote for Your Favorite Rick and Morty Characters!</h1>
@@ -95,7 +74,7 @@ export default function Home() {
               the dimension! Whether it's Pickle Rick or Evil Morty, your vote
               shapes the rankings.
             </p>
-            <a href="#" className="cta-button">
+            <Link to="/characters" className="cta-button">
               Cast your vote
               <svg
                 className="cta-icon"
@@ -106,13 +85,13 @@ export default function Home() {
                 <path
                   fillRule="evenodd"
                   d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 
-                1.414l-6 6a1 1 0 01-1.414-1.414L14.586 
-                11H3a1 1 0 110-2h11.586l-4.293-4.293a1 
-                1 0 010-1.414z"
+                  1.414l-6 6a1 1 0 01-1.414-1.414L14.586 
+                  11H3a1 1 0 110-2h11.586l-4.293-4.293a1 
+                  1 0 010-1.414z"
                   clipRule="evenodd"
                 />
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -253,7 +232,7 @@ export default function Home() {
               Dive deep into the multiverse secrets, character origins, and the
               wildest behind-the-scenes trivia from Rick and Morty episodes.
             </p>
-            <a href="#" className="cta-button">
+            <Link to="/episodes" className="cta-button">
               Get Started
               <svg
                 className="cta-icon"
@@ -264,13 +243,13 @@ export default function Home() {
                 <path
                   fillRule="evenodd"
                   d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 
-                1.414l-6 6a1 1 0 01-1.414-1.414L14.586 
-                11H3a1 1 0 110-2h11.586l-4.293-4.293a1 
-                1 0 010-1.414z"
+                  1.414l-6 6a1 1 0 01-1.414-1.414L14.586 
+                  11H3a1 1 0 110-2h11.586l-4.293-4.293a1 
+                  1 0 010-1.414z"
                   clipRule="evenodd"
                 />
               </svg>
-            </a>
+            </Link>
           </div>
 
           <div className="cta-image">
