@@ -4,6 +4,8 @@ import Home from '../pages/Home';
 import NotFound from '../pages/NotFound';
 import Episodes from '../pages/Episodes';
 import MainLayout from '../layouts/MainLayout';
+import Characters from '../pages/Characters';
+import EpisodeDetails from '../pages/EpisodeDetails';
 
 export default function AppRouter() {
   return (
@@ -12,6 +14,8 @@ export default function AppRouter() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/episodes" element={<Episodes />} />
+          <Route path="/episode/:episodeId" element={<EpisodeDetails />} />
+          <Route path="/characters" element={<Characters />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </MainLayout>
