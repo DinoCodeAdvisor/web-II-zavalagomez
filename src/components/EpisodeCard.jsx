@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useReducer } from "react";
 import { Link } from "react-router-dom";
 import "../styles/components/EpisodeCard.css";
 import {
@@ -6,31 +6,46 @@ import {
   setLikesDislikesToLocalStorage
 } from "../services/LocalStorageService_Episode";
 
+// Reducer logic
+const initialState = { likes: 0, dislikes: 0 };
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "SET":
+      return { likes: action.likes, dislikes: action.dislikes };
+    case "LIKE":
+      return { ...state, likes: state.likes + 1 };
+    case "DISLIKE":
+      return { ...state, dislikes: state.dislikes + 1 };
+    default:
+      return state;
+  }
+}
+
 export default function EpisodeCard({ episode }) {
   const season = episode.episode.slice(1, 3);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-  // Load likes and dislikes from local storage
-  const [likes, setLikes] = useState(0);
-  const [dislikes, setDislikes] = useState(0);
-
+  // Load data from localStorage on mount
   useEffect(() => {
     const savedData = getLikesDislikesFromLocalStorage();
     if (savedData[episode.id]) {
-      setLikes(savedData[episode.id].likes);
-      setDislikes(savedData[episode.id].dislikes);
+      dispatch({
+        type: "SET",
+        likes: savedData[episode.id].likes,
+        dislikes: savedData[episode.id].dislikes
+      });
     }
   }, [episode.id]);
 
   const handleLike = () => {
-    const newLikes = likes + 1;
-    setLikes(newLikes);
-    setLikesDislikesToLocalStorage(episode.id, newLikes, dislikes);
+    dispatch({ type: "LIKE" });
+    setLikesDislikesToLocalStorage(episode.id, state.likes + 1, state.dislikes);
   };
 
   const handleDislike = () => {
-    const newDislikes = dislikes + 1;
-    setDislikes(newDislikes);
-    setLikesDislikesToLocalStorage(episode.id, likes, newDislikes);
+    dispatch({ type: "DISLIKE" });
+    setLikesDislikesToLocalStorage(episode.id, state.likes, state.dislikes + 1);
   };
 
   return (
@@ -49,10 +64,10 @@ export default function EpisodeCard({ episode }) {
         </div>
         <div className="episode-buttons">
           <button onClick={handleLike} className="episode-like">
-            👍 Like ({likes})
+            👍 Like ({state.likes})
           </button>
           <button onClick={handleDislike} className="episode-dislike">
-            👎 Dislike ({dislikes})
+            👎 Dislike ({state.dislikes})
           </button>
         </div>
       </div>
