@@ -1,8 +1,13 @@
 /* General Styles */
 .not-found {
-  background-color: #0c0c0c;
-  color: #e0ffe9;
+  background-color: #0f0f1a; /* Dark navy background */
+  color: #f0f0f0; /* Light gray/white text */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .not-found .container {
@@ -22,8 +27,8 @@
   margin-bottom: 1rem;
   font-size: 5rem;
   font-weight: 800;
-  color: #00ffae;
-  text-shadow: 0 0 20px #00ffae99;
+  color: #ff385c; /* Airbnb red-pink accent */
+  text-shadow: 0 0 20px rgba(255, 56, 92, 0.4);
 }
 
 /* Subtitle Styles */
@@ -31,14 +36,14 @@
   margin-bottom: 1rem;
   font-size: 2rem;
   font-weight: 700;
-  color: #a3f7dc;
+  color: #ffffff; /* Pure white for strong contrast */
 }
 
 /* Description Styles */
 .not-found .description {
   margin-bottom: 1rem;
   font-size: 1.125rem;
-  color: #9be7c4;
+  color: #dcdcdc; /* Soft gray for body text */
 }
 
 /* Button Styles */
@@ -49,20 +54,20 @@
   padding: 0.625rem 1.25rem;
   font-size: 1rem;
   font-weight: 600;
-  background-color: #00ffae;
-  color: #0c0c0c;
+  background-color: #ff385c; /* Airbnb red-pink */
+  color: #ffffff;
   border-radius: 0.375rem;
   text-decoration: none;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 0 10px #00ffae66;
+  box-shadow: 0 0 10px rgba(255, 56, 92, 0.3);
 }
 
 .not-found .button:hover {
-  background-color: #00e6a0;
-  box-shadow: 0 0 20px #00ffae;
+  background-color: #e03150;
+  box-shadow: 0 0 20px rgba(255, 56, 92, 0.6);
 }
 
 .not-found .button:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(0, 255, 174, 0.5);
+  box-shadow: 0 0 0 3px rgba(255, 56, 92, 0.5);
 }
