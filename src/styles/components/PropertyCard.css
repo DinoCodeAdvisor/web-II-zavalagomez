@@ -158,4 +158,10 @@
   .property-link {
     flex-direction: column;
   }
+
+  .property-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
