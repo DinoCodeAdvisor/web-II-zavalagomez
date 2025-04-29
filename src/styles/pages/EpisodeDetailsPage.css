@@ -6,6 +6,9 @@
   padding: 2rem 1rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .details-page-header {
@@ -29,6 +32,11 @@
 .character-like-section,
 .liked-characters {
   margin: 2rem 0;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .character-like-section h3,
@@ -42,10 +50,12 @@
 
 .character-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(230px, 280px));
   gap: 2rem;
-  padding: 0 1rem;
+  justify-content: center;
   justify-items: center;
+  width: 100%;
+  padding: 0 1rem;
 }
 
 /* Like Button */
@@ -95,29 +105,31 @@
 
 /* Reduce size of character cards in liked section */
 .liked-characters .character-list .character-card {
-  transform: scale(0.75); /* Slightly reduced size */
+  transform: scale(0.75);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .liked-characters .character-list .character-card:hover {
-  transform: scale(0.85); /* Slightly enlarge on hover */
+  transform: scale(0.85);
   box-shadow: 0 0 12px #00ffae88, 0 0 24px #00ffae66;
 }
 
-/* Ensuring proper spacing and styling for character cards */
+/* Character Card Styling */
 .character-card {
   padding: 1rem;
   border-radius: 8px;
   background-color: #1f1f1f;
   box-shadow: 0 0 10px rgba(0, 255, 170, 0.6);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform: scale(0.85);
 }
 
 .character-card:hover {
-  transform: scale(1.05);
+  transform: scale(0.95);
   box-shadow: 0 0 15px rgba(0, 255, 170, 0.8);
 }
 
+/* Animation for likes */
 @keyframes pulse-glow {
   0% {
     text-shadow: 0 0 6px #00ffae88, 0 0 14px #00ffae44;
@@ -130,6 +142,7 @@
   }
 }
 
+/* Responsive adjustments */
 @media (min-width: 768px) {
   .details-page-header h1 {
     font-size: 3rem;
@@ -137,9 +150,5 @@
 
   .details-page-subtitle {
     font-size: 1.5rem;
-  }
-
-  .character-list {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   }
 }
