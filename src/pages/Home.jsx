@@ -3,11 +3,15 @@ import { FaSearch } from "react-icons/fa";
 import CategoryList from "../components/CategoryList";
 import RecipeList from "../components/RecipeList";
 import "../styles/pages/Home.css";
+import { useLocation } from "react-router-dom";
 
 export default function Home() {
+
+  const location = useLocation();
+
   const [categories, setCategories] = useState([]);
   const [recipes, setRecipes] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("Dessert");
+  const [selectedCategory, setSelectedCategory] = useState(location.state?.category || "Dessert");
   const [sortOrderAsc, setSortOrderAsc] = useState(true);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -101,7 +105,7 @@ export default function Home() {
           </div>
 
           {sortedRecipes.length > 0 ? (
-            <RecipeList recipes={sortedRecipes} />
+            <RecipeList recipes={sortedRecipes} selectedCategory={selectedCategory} />
           ) : (
             <p className="no-results-message">
               No recipes found for "{searchQuery}" in {selectedCategory}.
